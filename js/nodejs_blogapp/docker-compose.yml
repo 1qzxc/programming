@@ -1,0 +1,51 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8090:8080"
+    depends_on:
+      - mongo
+    networks:
+      - nodejs-blog-network
+        #  prometheus:
+          #    image: prom/prometheus:latest
+    #    volumes:
+            #      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+        #    command:
+            #      - "--config.file=/etc/prometheus/prometheus.yml"
+        #    ports:
+            #      - "9090:9090"
+        #    networks:
+            #      - nodejs-blog-network
+        #  grafana:
+        #    image: grafana/grafana:5.4.4
+        #    depends_on:
+        #      - prometheus
+        #    ports:
+        #      - "3000:3000"
+        #    volumes:
+        #      - ./grafana/provisioning/:/etc/grafana/provisioning/
+        #    networks:
+        #      - nodejs-blog-network
+  mongo:
+    image: mongo:4.4.6
+    container_name: mongodb
+#    restart: unless-stopped
+#    env_file: .env
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+#      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - blogdata:/data/db
+#    ports:
+#      - "27018:27017"
+    networks:
+      - nodejs-blog-network
+
+networks:
+  nodejs-blog-network:
+    driver: bridge
+
+volumes:
+  blogdata:

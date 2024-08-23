@@ -1,1 +1,2 @@
-# code snippets
+# programming
+## tutorials, exercises and tasks for job interviews

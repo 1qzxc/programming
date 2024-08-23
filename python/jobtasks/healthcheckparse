@@ -1,0 +1,6 @@
+#Given the payload at the URL http://hiringtest.lightspeedappdev.com/, write a program, in any language of your choice, which fulfills the following criteria:
+
+#- It must run from a command prompt.
+#- It must accept the payload URL as an argument.
+#- It must list all the things that report an state different than OK, following the format: "The service $SVC_NAME is $SVC_STATUS".
+#- It must exit with a non-zero exit code if something goes wrong or if any of the services is in a state different than "OK

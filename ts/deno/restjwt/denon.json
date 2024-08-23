@@ -1,0 +1,12 @@
+// into denon.json
+{
+    "$schema": "https://deno.land/x/denon/schema.json",
+    "env": {
+      "SECRET": "some_junk"
+    },
+    "scripts": {
+      "start": {
+        "cmd": "deno run --allow-env --allow-read --allow-net app.ts"
+      }
+    }
+  }

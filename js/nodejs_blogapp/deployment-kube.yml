@@ -1,0 +1,17 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: nodejs-blogapp
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nodejs-blogapp  
+    spec:     
+      containers: 
+      - name: hello-world 
+        image: mikefrostov/nodejs-blogapp
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
